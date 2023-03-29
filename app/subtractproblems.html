@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script>
+      function showresult(resulttext, alertcolor, placementid) {
+        let result = document.createElement("div");
+        result.textContent = resulttext;
+        result.setAttribute(
+          "class",
+          alertcolor,
+          "role",
+          "alert",
+        );
+        let x = document.getElementById(placementid);
+        let parentDiv = x.parentNode;
+        parentDiv.insertBefore(result, x);
+      }
+
+      function checkans(ans, userans, placementid) {
+        let ans1 = document.querySelector(userans).value;
+        if (ans1 == "") {
+          return;
+        } 
+        else {
+          let ans1 = Number(document.querySelector(userans).value);
+          if (ans1 == ans) {
+            showresult("Correct!", "alert alert-success", placementid);
+          } 
+          else {
+            showresult("Incorrect. Please try again.", "alert alert-danger", placementid);
+          }
+        }
+      }
+    </script>
+
+    <style>
+      .button {
+        background-color: green; /* Green */
+        color: black;
+        padding: 15px 32px;
+        text-align: center;
+        display: inline-block;
+        font-size: 16px;
+        border-radius: 12px;
+        transition-duration: 0.4s;
+        cursor: pointer;
+        border: 2px solid black;
+      }
+      .button:hover {
+        background-color: white;
+        color: green;
+        border: 2px solid green;
+        border-radius: 12px;
+      }
+    </style>
+  </head>
+  <body style="background-color: purple;">
+    <a href="index.html"
+      ><button class="button" type="button">Back to Home Page</button></a
+    >
+    <a href="add.html"
+      ><button class="button" type="button">Back to Addition Page</button></a
+    >
+
+    <h4>
+      1. 5-3
+    </h4>
+
+   <form onsubmit="checkans(2, '#anstext1', 'break1'); return false;">
+      <input type="text" id="anstext1" autocomplete="off" />
+      <input type="submit" value="Check Your Answer!" />
+    </form>
+
+    <br id="break1">
+    <br>
+
+    <h4>
+      2. 6-6
+    </h4>
+
+    <form
+      onsubmit="checkans(0, '#anstext2', 'break2'); return false;"
+    >
+      <input type="text" id="anstext2" autocomplete="off" />
+      <input type="submit" value="Check Your Answer!" />
+    </form>
+
+    <br id="break2">
+    <br>
+
+    <h4>
+      3. 9-3
+    </h4>
+
+    <form
+      onsubmit="checkans(6, '#anstext3', 'break3'); return false;"
+    >
+      <input type="text" id="anstext3" autocomplete="off" />
+      <input type="submit" value="Check Your Answer!" />
+    </form>
+
+    <br id="break3">
+    <br>
+
+    <h4>
+      4. 9-2
+    </h4>
+
+    <form
+      onsubmit="checkans(7, '#anstext4', 'break4'); return false;"
+    >
+      <input type="text" id="anstext4" autocomplete="off" />
+      <input type="submit" value="Check Your Answer!" />
+    </form>
+
+    <br id="break4">
+    <br>
+
+    <h4>
+      5. 4-2
+    </h4>
+
+    <form
+      onsubmit="checkans(2, '#anstext5', 'break5'); return false;"
+    >
+      <input type="text" id="anstext5" autocomplete="off" />
+      <input type="submit" value="Check Your Answer!" />
+    </form>
+
+    <br id="break5">
+    <br>
+  </body>
+</html>
